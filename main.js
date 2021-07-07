@@ -3,6 +3,9 @@ import './style.css'
 //import three.js
 import * as THREE from 'three';
 
+//interact with mouse
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
 //scene, camera and renderer
 const scene = new THREE.Scene();
 
@@ -43,7 +46,12 @@ scene.add(pointLight, ambientLight);
 
 //light helper show where lights are
 const lightHelper = new THREE.PointLightHelper(pointLight);
-scene.add(lightHelper);
+//gridhelper draws a grid at the scene
+const gridHelper = new THREE.GridHelper(200, 50);
+scene.add(lightHelper, gridHelper);
+
+//listens to dom input on mouse and updates camera rotation
+const controls = new OrbitControls(camera, renderer.domElement);
 
 //animation loop - something like "Update" or "game loop"
 function animate() {
