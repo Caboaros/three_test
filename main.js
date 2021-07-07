@@ -53,6 +53,22 @@ scene.add(lightHelper, gridHelper);
 //listens to dom input on mouse and updates camera rotation
 const controls = new OrbitControls(camera, renderer.domElement);
 
+function addStar() {
+    //our star
+    const geometry = new THREE.SphereGeometry(0.25, 24, 24);
+    const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+    const star = new THREE.Mesh(geometry, material);
+
+    //generate random numbers for XYZ
+    const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
+
+    star.position.set(x, y, z);
+
+    scene.add(star);
+}
+
+Array(200).fill().forEach(addStar);
+
 //animation loop - something like "Update" or "game loop"
 function animate() {
     requestAnimationFrame(animate);
