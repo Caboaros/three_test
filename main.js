@@ -67,7 +67,15 @@ function addStar() {
     scene.add(star);
 }
 
+//add 200 stars
 Array(200).fill().forEach(addStar);
+
+//background with space texture
+const spaceTexture = new THREE.TextureLoader().load('space.jpg');
+scene.background = spaceTexture;
+
+
+
 
 //animation loop - something like "Update" or "game loop"
 function animate() {
