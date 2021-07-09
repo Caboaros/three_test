@@ -10,5 +10,7 @@
   },
   "dependencies": {
     "three": "^0.130.1"
-  }
+  },
+
+  "homepage": "https://caboaros.github.io/three_test/"
 }
