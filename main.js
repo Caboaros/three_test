@@ -94,7 +94,11 @@ const moon = new THREE.Mesh(
         normalMap: normalTexture
     })
 );
+
 scene.add(moon);
+
+moon.position.z = 30;
+moon.position.setX(-10)
 
 //animation loop - something like "Update" or "game loop"
 function animate() {
@@ -107,6 +111,29 @@ function animate() {
 
     renderer.render(scene, camera);
 }
+
+function moveCamera(){
+    //first we get where we are in the package
+    //getBoundingClientRect get distance from the top of the page
+    const t = document.body.getBoundingClientRect().top;
+
+    //rotate moon with scroll
+    moon.rotation.x += 0.05;
+    moon.rotation.y += 0.075;
+    moon.rotation.z += 0.05;
+
+    //rotate avatar
+    avatar.rotation.y += 0.01;
+    avatar.rotation.z += 0.01;
+
+    //move camera with scroll
+    camera.position.z = t * -0.01;
+    camera.position.x = t * -0.0002;
+    camera.position.y = t * -0.0002;
+}
+
+document.body.onscroll = moveCamera;
+moveCamera();
 
 //update things at screen
 animate();
