@@ -50,7 +50,7 @@ scene.add(pointLight, ambientLight);
 const lightHelper = new THREE.PointLightHelper(pointLight);
 //gridhelper draws a grid at the scene
 const gridHelper = new THREE.GridHelper(200, 50);
-scene.add(lightHelper, gridHelper);
+//scene.add(lightHelper, gridHelper);
 
 //listens to dom input on mouse and updates camera rotation
 const controls = new OrbitControls(camera, renderer.domElement);
