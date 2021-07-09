@@ -1,4 +1,7 @@
-#!/usr/bin/env sh
+/usr/bin/env sh
+
+npm install -D vite-plugin-pages
+npm install vue-router@next
 
 # abort on errors
 set -e
