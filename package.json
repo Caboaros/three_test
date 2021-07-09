@@ -1,10 +1,4 @@
 {
-    "homepage": "https://caboaros.github.io/three_test/",
-  "name": "three_test",
-  "version": "0.0.2",
-  "description": "",
-  "keywords": [],
-  "main": "index.html",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
