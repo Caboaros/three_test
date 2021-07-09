@@ -18,13 +18,15 @@ const renderer = new THREE.WebGLRenderer({
 //set renderer and camera
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.setZ(30);
+const initialPosZ = 7;
+camera.position.setZ(initialPosZ);
+camera.position.setX(4);
 
 //render this
 renderer.render(scene, camera);
 
 //torus object
-const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+const geometry = new THREE.TorusGeometry(10, 2, 16, 100);
 //basic material
 //const material = new THREE.MeshBasicMaterial({ color: 0xFF6347, wireframe: true });
 //texture material
@@ -127,7 +129,7 @@ function moveCamera(){
     avatar.rotation.z += 0.01;
 
     //move camera with scroll
-    camera.position.z = t * -0.01;
+    camera.position.z = t * -0.008 + initialPosZ;
     camera.position.x = t * -0.0002;
     camera.position.y = t * -0.0002;
 }
